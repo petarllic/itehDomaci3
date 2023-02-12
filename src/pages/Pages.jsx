@@ -1,7 +1,6 @@
-import React from 'react';
 import Home from './Home';
 import Cuisine from './Cuisine';
-import {Route,Routes} from 'react-router-dom';
+import {Route,Routes,BrowserRouter} from 'react-router-dom';
 import Searched from './Searched';
 import Recipe from './Recipe';
 
@@ -16,5 +15,3 @@ function Pages() {
     </Routes>
   )
 }
-
-export default Pages
