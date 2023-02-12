@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
 import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import {Splide,SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
+import { Card, Gradient, Wrapper } from '../styled_components/MyList.styled';
 
 function Popular() {
 

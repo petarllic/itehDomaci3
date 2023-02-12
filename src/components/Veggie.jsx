@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import {Splide,SplideSlide} from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import { Card, Gradient, Wrapper } from '../styled_components/MyList.styled';
-import { Link } from 'react-router-dom';
 
 function Veggie() {
 
   const [veggie,setVeggie] = useState([]);
-  
+
   // with useEffect Hook we perform side effect in our component, after component is rendered
   // [] - “only run on mount, and clean up on unmount”.
   // mount - put element into DOM   
@@ -32,10 +31,10 @@ function Veggie() {
       console.log(data.recipes);
     }
 
-    
+
   };
 
-  
+
   return (
     <div>
     <Wrapper>
@@ -52,11 +51,9 @@ function Veggie() {
         return(
           <SplideSlide key={recipe.id}>
           <Card>
-            <Link to={'/recipe/'+recipe.id}>
             <p>{recipe.title}</p>
             <img src={recipe.image} alt={recipe.title}/>
             <Gradient/>
-            </Link>
           </Card>
           </SplideSlide>
         );
