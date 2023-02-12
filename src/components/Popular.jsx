@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
+import {Splide,SplideSlide} from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 
 function Popular() {
 
@@ -12,11 +15,29 @@ function Popular() {
     getPopular(); 
   },[]);  
 
+  
   const getPopular = async () => {
     const api = await fetch (`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
     const data = await api.json();
     setPopular(data.recipes);
     console.log(data.recipes);
+
+    const check = localStorage.getItem('popular');
+
+    if(check){
+      setPopular(JSON.parse(check));
+    }else{
+      const api = await fetch (`https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`);
+      const data = await api.json();
+
+      // in local storage we can only save strings
+      localStorage.setItem('popular',JSON.stringify(data.recipes));
+
+      setPopular(data.recipes);
+      console.log(data.recipes);
+    }
+
+
   };
 
   return (
